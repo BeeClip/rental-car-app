@@ -1,0 +1,6 @@
+<div class="container">
+    <p>Car List for {{listType}}</p>
+    <div *ngFor="let car of cars">
+        <app-car [car]="car"></app-car>
+    </div>    
+</div>

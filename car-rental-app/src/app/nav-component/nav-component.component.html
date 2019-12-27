@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row >
+      <span (click)="onHomeClick()">Rebecca's Auto Rentals</span>
+      <button mat-button [matMenuTriggerFor]="menu">Cars</button>
+      <mat-menu #menu="matMenu">
+        <button routerLink="/cars/economy" mat-menu-item>Economy</button>
+        <button routerLink="/cars/luxury" mat-menu-item>Luxury</button>
+        <button routerLink="/cars/all" mat-menu-item>All</button>
+      </mat-menu>
+      <button routerLink="/reserve" mat-button>Reservations</button>
+  </mat-toolbar-row>
+</mat-toolbar>      
+
