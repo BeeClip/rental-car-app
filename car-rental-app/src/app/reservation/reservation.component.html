@@ -1,33 +1,50 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm">
+        <div class="col-md">
             <h1>Make a Reservation</h1>
         </div>
     </div>
         <div class="row">
-        <div class="col-sm">
+        <div class="col-md">
             <mat-form-field>
-                <input matInput [(ngModel)]="newBooking.start" [matDatepicker]="startPicker" [min]="minDate" placeholder="Start date">
+                <input matInput [(ngModel)]="newBooking.start" (ngModelChange)="filterAvailableCars()" [matDatepicker]="startPicker" [min]="minDate" placeholder="Start date">
                 <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
                 <mat-datepicker #startPicker></mat-datepicker>
             </mat-form-field>
         </div>
-        <div class="col-sm">
+        <div class="col-md">
             <mat-form-field>
-                <input matInput [(ngModel)]="newBooking.end" [matDatepicker]="endPicker" [min]="newBooking.start" [disabled]="!newBooking.start" placeholder="End date">
+                <input matInput [(ngModel)]="newBooking.end" (ngModelChange)="filterAvailableCars()" [matDatepicker]="endPicker" [min]="newBooking.start" [disabled]="!newBooking.start" placeholder="End date">
                 <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
                 <mat-datepicker #endPicker></mat-datepicker>
             </mat-form-field>
         </div>
         </div>
         <div class="row">
-            <div class="col-sm">
-                <h2>Available Vehicles:</h2>
-                <select>
-                    <option></option>
-                </select>
+            <div class="col-md">
+                <mat-form-field>
+                    <input matInput placeholder="First Name" [(ngModel)]="first_name"> 
+                </mat-form-field>
+            </div>
+            <div class="col-md">
+                <mat-form-field>
+                    <input matInput placeholder="Last Name" [(ngModel)]="last_name">
+                </mat-form-field>
             </div>
         </div>
-        <button class="button" type="submit" (click)="onSubmit()">Reserve</button> 
+        <div class="row" *ngIf="dateRangeSelected()">
+            <div class="col-md">
+                <mat-form-field>
+                    <mat-label>Available Vehicles:</mat-label>
+                    <mat-select [(ngModel)]="newBooking.car_id">
+                      <mat-option *ngFor="let car of availableCars" [value]="car.id" name="car">
+                          <div class="img_option"><img class="thumbnail" src='{{car.img_src}}'> {{car.make}} {{car.model}} {{car.year }} - {{ car.daily_rate | currency:'USD'}}/day</div>                        
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </div>
+        <button mat-raised-button color="primary" class="button" type="submit" (click)="onSubmit()" [disabled]="!isValid()">Reserve</button>
+        <p class="not_real" *ngIf="isValid()">In a real application we would take payment information, contact information, and have a full customer profile</p>
 </div>
 

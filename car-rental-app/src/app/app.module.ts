@@ -12,6 +12,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,7 +46,8 @@ import { HomeComponent } from './home/home.component';
     MatInputModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule
    ],
   providers: [],
   bootstrap: [AppComponent]

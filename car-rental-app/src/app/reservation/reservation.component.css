@@ -1,0 +1,16 @@
+.thumbnail {
+    width: auto;
+    height: 3em;
+}
+
+.img_option {
+    margin: 2px;
+}
+
+.not_real {
+    color: darkred;
+}
+
+::ng-deep .mat-form-field-infix{
+    width:400px !important;
+}

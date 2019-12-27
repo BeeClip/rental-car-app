@@ -9,7 +9,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## To Run Application
 
 Run `npm start` to start the api server on localhost:3000
-Run `ng serve --proxy-config proxy.conf.json` to start the UI dev server
+Run `ng serve --proxy-config proxy.conf.json` to start the UI dev server on localhost:4200
 
 ## Acknowledgements
 

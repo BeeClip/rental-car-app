@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private _router: Router
   ) { }
 
   ngOnInit() {
   }
 
   onHomeClick() {
-    this.router.navigateByUrl('/');
+    this._router.navigateByUrl('/');
   }
 }
