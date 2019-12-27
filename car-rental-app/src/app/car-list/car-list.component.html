@@ -1,6 +1,8 @@
 <div class="container">
-    <p>Car List for {{listType}}</p>
-    <div *ngFor="let car of cars">
-        <app-car [car]="car"></app-car>
-    </div>    
+    <h1>{{listType | titlecase }} Cars</h1>
+    <mat-grid-list cols="2">
+        <mat-grid-tile *ngFor="let car of cars">
+            <app-car [car]="car"></app-car>
+        </mat-grid-tile>
+    </mat-grid-list>  
 </div>

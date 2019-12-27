@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="card-size">
     <mat-card-title>
         {{car.make}} {{car.model}} - {{car.year}}
     </mat-card-title>
@@ -8,10 +8,22 @@
     <img *ngIf="car.img_src" class="image-size" mat-card-image src="{{car.img_src}}" alt="car image">
     <img *ngIf="!car.img_src" class="image-size" mat-card-image src="asset/no-image.jpeg" alt="no image">
     <mat-card-content>
-        <span *ngIf="car.available">Available Now!</span>
-        <span *ngIf="!car.available">Unavailable</span>
-        Seats: {{car.seats}}
-        Doors: {{car.doors}}
+        <div class="row">
+            <div class="col-sm">
+                <span *ngIf="car.available">Available Now!</span>
+                <span *ngIf="!car.available">Unavailable</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <strong>Seats:</strong> {{car.seats}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+               <strong>Doors:</strong> {{car.doors}} 
+            </div>
+        </div>       
     </mat-card-content>
 </mat-card>
 

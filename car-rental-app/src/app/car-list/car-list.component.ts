@@ -13,7 +13,7 @@ import { Car } from '../car/car';
 export class CarListComponent implements OnInit {
 
   listType: string;
-  cars: [Car]
+  cars: any;
 
   constructor(private _route: ActivatedRoute,
     private _carService: CarService) {}
@@ -22,7 +22,7 @@ export class CarListComponent implements OnInit {
     this._route.paramMap.subscribe(params => {
       this.listType = params.get('listType')
       this._carService.getCars(this.listType).subscribe(data => {
-        this.cars = data;
+        this.cars = data.cars;
       })
     });
   }

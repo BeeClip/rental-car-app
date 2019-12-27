@@ -1,4 +1,33 @@
 <div class="container">
-    <p>reservation works!</p>
+    <div class="row">
+        <div class="col-sm">
+            <h1>Make a Reservation</h1>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-sm">
+            <mat-form-field>
+                <input matInput [(ngModel)]="newBooking.start" [matDatepicker]="startPicker" [min]="minDate" placeholder="Start date">
+                <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                <mat-datepicker #startPicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-sm">
+            <mat-form-field>
+                <input matInput [(ngModel)]="newBooking.end" [matDatepicker]="endPicker" [min]="newBooking.start" [disabled]="!newBooking.start" placeholder="End date">
+                <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+                <mat-datepicker #endPicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <h2>Available Vehicles:</h2>
+                <select>
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <button class="button" type="submit" (click)="onSubmit()">Reserve</button> 
 </div>
 

@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import {Car} from '../car/car';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,11 @@ export class CarService {
     private http: HttpClient
   ) { }
 
-  getCars(type) {
+  getCars(type): any {
     if (!type) type = 'all';
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.http.get('api/cars/' + type)
   }
 }
